@@ -1,0 +1,13 @@
+<canvas class = "canvas" id="chart1"
+canvas-id="noise"></canvas>
+<canvas class = "canvas" id="chart2"
+canvas-id="light"></canvas>
+<canvas class = "canvas" id="chart3"
+canvas-id="tempe"></canvas>
+
+<text id="text1">这里很安静哦~
+</text>
+<text id="text2">这里光线适宜~
+</text>
+<text id="text3">这里温度适宜~
+</text>
