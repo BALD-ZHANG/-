@@ -1,0 +1,16 @@
+<!--start.wxml-->
+
+<button class="btn1" bindtap="getDataFromOneNet1">
+宿舍❤</button>
+
+<button class="btn2" bindtap="getDataFromOneNet2">
+教室N103❤</button>
+
+<button class="btn3" bindtap="getDataFromOneNet1">
+待添加❤</button>
+
+<text id="text">提示：
+15分贝以下：感觉安静
+60分贝以下：适合学习
+</text>
+ 
