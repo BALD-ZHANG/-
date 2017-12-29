@@ -52,6 +52,25 @@ String postString;                                //用于存储发送数据的�
 #include <Microduino_ColorLED.h>
 
 
+
+#include <U8glib.h>//使用OLED需要包含这个头文件
+#define INTERVAL_LCD 20 //定义OLED刷新时间间隔 
+unsigned long lcd_time = millis(); //OLED刷新时间计时器
+U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE); //设置OLED型号 
+//-------字体设置，大、中、小
+#define setFont_L u8g.setFont(u8g_font_7x13)
+#define setFont_M u8g.setFont(u8g_font_fixed_v0r)
+#define setFont_S u8g.setFont(u8g_font_fixed_v0r)
+#define setFont_SS u8g.setFont(u8g_font_fub25n)
+
+
+
+
+
+
+
+
+
 void setup(void)     //初始化函数  
 {       
   //初始化串口波特率  
@@ -112,7 +131,28 @@ void loop(void)     //循环函数
     net_time1 = millis();
   }
    double db=getDB();//获得分贝数
-  analyticDB(db);//分析分贝  
+  analyticDB(db);//分析分贝 
+
+
+u8g.firstPage();
+ do {
+ setFont_L;
+ u8g.setPrintPos(0, 10);
+ u8g.print(sensor_tem);
+  u8g.setPrintPos(40, 10);
+ u8g.print("Celcius");
+ u8g.setPrintPos(0, 30);
+ u8g.print(sensor_lux);
+ u8g.setPrintPos(40, 30);
+ u8g.print("lux");
+u8g.setPrintPos(0, 50);
+ u8g.print(db);
+ u8g.setPrintPos(40, 50);
+ u8g.print("db");
+ }while( u8g.nextPage() );
+
+
+   
 }
 
 void getSensorData(){  
